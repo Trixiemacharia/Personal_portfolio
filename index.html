@@ -3,370 +3,119 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Stacy Gathigia Macharia — Software Engineer &amp; SOC Analyst in Training</title>
-<meta name="description" content="Portfolio of Stacy Gathigia Macharia — backend-leaning full-stack developer building Sentinel, a compliance/identity verification platform, and training as a SOC analyst. Django, React, FastAPI, Convex, Burp Suite, Wireshark, Splunk.">
-<meta property="og:title" content="Stacy Gathigia Macharia — Software Engineer & SOC Analyst in Training">
-<meta property="og:description" content="Backend-leaning full-stack developer and SOC analyst in training. Real-time systems, APIs, and security fundamentals.">
+<title>Stacy Gathigia Macharia — Software Engineer &amp; Cybersecurity</title>
+<meta name="description" content="Portfolio of Stacy Gathigia Macharia (Trixie) — Computer Science student, backend-leaning full-stack developer, and SOC analyst in training. Django, React, APIs, cloud, cybersecurity.">
+<meta name="theme-color" content="#0A0B14">
+<meta property="og:title" content="Stacy Gathigia Macharia — Software Engineer &amp; Cybersecurity">
+<meta property="og:description" content="Backend-leaning full-stack developer and SOC analyst in training. Real systems, real APIs, real security labs.">
 <meta property="og:type" content="website">
 <meta name="robots" content="index, follow">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2224%22 fill=%22%237C6FF0%22/><text x=%2250%22 y=%2264%22 font-size=%2244%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22monospace%22>SM</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:#0A0E13;
-    --bg-panel:#11161D;
-    --bg-panel-2:#161D26;
-    --bg-elevated:#1A222C;
-    --border:#212B36;
-    --border-soft:#1A222C;
-    --text:#E9EDF2;
-    --text-dim:#8996A6;
-    --text-faint:#5C6774;
-    --amber:#E3A857;
-    --amber-dim:#B98A45;
-    --blue:#6FA8C7;
-    --blue-dim:#4C7A94;
-    --green:#6FBF8B;
-    --red:#D9705A;
-    --font-display:'Space Grotesk', sans-serif;
-    --font-body:'IBM Plex Sans', sans-serif;
-    --font-mono:'IBM Plex Mono', monospace;
-    --maxw:1180px;
-  }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  @media (prefers-reduced-motion: reduce){
-    html{scroll-behavior:auto;}
-    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
-  }
-  body{
-    margin:0;
-    background:var(--bg);
-    color:var(--text);
-    font-family:var(--font-body);
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-  }
-  body::before{
-    content:"";
-    position:fixed; inset:0;
-    background-image:
-      radial-gradient(circle at 1px 1px, rgba(233,237,242,0.035) 1px, transparent 0);
-    background-size:28px 28px;
-    pointer-events:none;
-    z-index:0;
-  }
-  h1,h2,h3,h4{font-family:var(--font-display); font-weight:600; margin:0; letter-spacing:-0.01em;}
-  p{margin:0;}
-  a{color:inherit; text-decoration:none;}
-  ul{margin:0; padding:0; list-style:none;}
-  button{font-family:inherit; cursor:pointer;}
-  code, .mono{font-family:var(--font-mono);}
-  img{max-width:100%; display:block;}
-  section{position:relative; z-index:1;}
-  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
-  ::selection{background:var(--amber); color:#0A0E13;}
-  :focus-visible{outline:2px solid var(--amber); outline-offset:3px; border-radius:3px;}
-
-  /* ---------- NAV ---------- */
-  header.nav{
-    position:sticky; top:0; z-index:50;
-    background:rgba(10,14,19,0.85);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--border-soft);
-  }
-  .nav-inner{max-width:var(--maxw); margin:0 auto; padding:16px 28px; display:flex; align-items:center; justify-content:space-between;}
-  .nav-brand{font-family:var(--font-mono); font-size:14px; color:var(--text); display:flex; align-items:center; gap:8px;}
-  .nav-brand .dot{width:7px; height:7px; border-radius:50%; background:var(--green); box-shadow:0 0 8px var(--green); flex:none;}
-  .nav-links{display:flex; gap:30px; align-items:center;}
-  .nav-links a{font-size:14px; color:var(--text-dim); transition:color .15s;}
-  .nav-links a:hover{color:var(--amber);}
-  .nav-cta{font-size:13px; font-family:var(--font-mono); padding:8px 14px; border:1px solid var(--amber-dim); border-radius:6px; color:var(--amber); transition:all .15s;}
-  .nav-cta:hover{background:var(--amber); color:#0A0E13; border-color:var(--amber);}
-  .nav-toggle{display:none; background:none; border:1px solid var(--border); border-radius:6px; padding:8px 10px; color:var(--text);}
-  .nav-toggle span, .nav-toggle span::before, .nav-toggle span::after{
-    content:""; display:block; width:18px; height:2px; background:var(--text); position:relative; transition:.2s;
-  }
-  .nav-toggle span::before{position:absolute; top:-6px;}
-  .nav-toggle span::after{position:absolute; top:6px;}
-
-  @media (max-width:860px){
-    .nav-links{
-      position:fixed; top:64px; left:0; right:0; bottom:0;
-      background:var(--bg); flex-direction:column; align-items:flex-start;
-      padding:24px 28px; gap:22px; transform:translateY(-8px); opacity:0; pointer-events:none;
-      transition:.2s; border-top:1px solid var(--border-soft);
-    }
-    .nav-links.open{transform:translateY(0); opacity:1; pointer-events:auto;}
-    .nav-links a{font-size:18px;}
-    .nav-toggle{display:block;}
-  }
-
-  /* ---------- HERO ---------- */
-  .hero{padding:88px 0 72px; overflow:hidden;}
-  .hero-grid{display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center;}
-  @media (max-width:960px){ .hero-grid{grid-template-columns:1fr; gap:40px;} }
-  .eyebrow{font-family:var(--font-mono); font-size:12.5px; color:var(--blue); letter-spacing:.06em; display:flex; align-items:center; gap:8px; margin-bottom:18px;}
-  .eyebrow::before{content:""; width:16px; height:1px; background:var(--blue);}
-  .hero h1{font-size:clamp(32px, 4.4vw, 50px); line-height:1.08; margin-bottom:16px;}
-  .hero h1 .accent{color:var(--amber);}
-  .hero .lede{font-size:17px; color:var(--text-dim); max-width:52ch; margin-bottom:30px;}
-  .hero-ctas{display:flex; flex-wrap:wrap; gap:12px;}
-  .btn{
-    font-family:var(--font-mono); font-size:13.5px; padding:12px 20px; border-radius:7px;
-    display:inline-flex; align-items:center; gap:8px; transition:all .15s; border:1px solid transparent;
-  }
-  .btn-primary{background:var(--amber); color:#0A0E13; font-weight:600;}
-  .btn-primary:hover{background:#f0ba6d; transform:translateY(-1px);}
-  .btn-outline{border-color:var(--border); color:var(--text);}
-  .btn-outline:hover{border-color:var(--blue); color:var(--blue);}
-  .btn-ghost{color:var(--text-dim);}
-  .btn-ghost:hover{color:var(--text);}
-
-  .terminal{
-    background:var(--bg-panel); border:1px solid var(--border); border-radius:12px;
-    box-shadow:0 30px 60px -30px rgba(0,0,0,0.6);
-    overflow:hidden;
-  }
-  .term-bar{display:flex; align-items:center; gap:8px; padding:12px 16px; border-bottom:1px solid var(--border-soft); background:var(--bg-panel-2);}
-  .term-dot{width:10px; height:10px; border-radius:50%;}
-  .term-bar .term-title{margin-left:8px; font-family:var(--font-mono); font-size:12px; color:var(--text-faint);}
-  .term-body{padding:22px 20px; font-family:var(--font-mono); font-size:13.5px; line-height:1.85; color:var(--text-dim); min-height:280px;}
-  .term-body .prompt{color:var(--green);}
-  .term-body .path{color:var(--blue);}
-  .term-body .out-key{color:var(--amber);}
-  .term-body .out-strong{color:var(--text);}
-  .cursor{display:inline-block; width:7px; height:14px; background:var(--amber); margin-left:2px; vertical-align:middle; animation:blink 1s steps(1) infinite;}
-  @keyframes blink{50%{opacity:0;}}
-
-  /* ---------- SECTION HEADERS ---------- */
-  .section{padding:88px 0;}
-  .section-alt{background:linear-gradient(180deg, transparent, rgba(255,255,255,0.012), transparent);}
-  .section-head{margin-bottom:44px; max-width:640px;}
-  .section-tag{font-family:var(--font-mono); font-size:12px; color:var(--amber); letter-spacing:.08em; margin-bottom:10px; display:block;}
-  .section-head h2{font-size:clamp(24px,3vw,32px); margin-bottom:12px;}
-  .section-head p{color:var(--text-dim); font-size:15.5px;}
-  .divider{height:1px; background:var(--border-soft); border:none; margin:0;}
-
-  /* ---------- ABOUT ---------- */
-  .about-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:start;}
-  @media (max-width:900px){ .about-grid{grid-template-columns:1fr;} }
-  .about-text p{color:var(--text-dim); font-size:15.5px; margin-bottom:16px;}
-  .about-text p strong{color:var(--text); font-weight:500;}
-  .facts{border:1px solid var(--border); border-radius:10px; overflow:hidden;}
-  .fact-row{display:flex; justify-content:space-between; gap:16px; padding:14px 18px; border-bottom:1px solid var(--border-soft); font-size:13.5px;}
-  .fact-row:last-child{border-bottom:none;}
-  .fact-label{color:var(--text-faint); font-family:var(--font-mono);}
-  .fact-value{color:var(--text); text-align:right;}
-
-  /* ---------- FILTER BAR ---------- */
-  .filter-bar{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:34px;}
-  .filter-btn{
-    font-family:var(--font-mono); font-size:12.5px; padding:8px 14px; border-radius:20px;
-    border:1px solid var(--border); color:var(--text-dim); transition:all .15s; background:transparent;
-  }
-  .filter-btn:hover{border-color:var(--blue-dim); color:var(--text);}
-  .filter-btn.active{background:var(--amber); border-color:var(--amber); color:#0A0E13; font-weight:600;}
-
-  /* ---------- PROJECT CARDS ---------- */
-  .project-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:20px;}
-  @media (max-width:800px){ .project-grid{grid-template-columns:1fr;} }
-  .card{
-    background:var(--bg-panel); border:1px solid var(--border); border-radius:12px; padding:26px;
-    display:flex; flex-direction:column; gap:14px; transition:border-color .2s, transform .2s;
-  }
-  .card:hover{border-color:var(--border-soft); transform:translateY(-2px);}
-  .card.featured{border-color:rgba(227,168,87,0.25);}
-  .card-top{display:flex; justify-content:space-between; align-items:flex-start; gap:12px;}
-  .card-title{font-family:var(--font-display); font-size:19px;}
-  .status-pill{display:inline-flex; align-items:center; gap:6px; font-family:var(--font-mono); font-size:11px; padding:4px 9px; border-radius:20px; border:1px solid var(--border); color:var(--text-dim); white-space:nowrap;}
-  .status-dot{width:6px; height:6px; border-radius:50%;}
-  .status-live .status-dot{background:var(--green); box-shadow:0 0 6px var(--green);}
-  .status-live{color:var(--green); border-color:rgba(111,191,139,0.3);}
-  .status-source .status-dot{background:var(--blue);}
-  .status-source{color:var(--blue); border-color:rgba(111,168,199,0.3);}
-  .status-dev .status-dot{background:var(--amber);}
-  .status-dev{color:var(--amber); border-color:rgba(227,168,87,0.3);}
-  .card-desc{color:var(--text-dim); font-size:14.5px;}
-  .card-built{font-size:13.5px; color:var(--text-faint); border-left:2px solid var(--border); padding-left:12px;}
-  .card-built strong{color:var(--text-dim); font-weight:500;}
-  .tag-row{display:flex; flex-wrap:wrap; gap:6px;}
-  .tag{font-family:var(--font-mono); font-size:11px; color:var(--blue); background:rgba(111,168,199,0.08); padding:4px 9px; border-radius:5px;}
-  .card-cats{display:flex; gap:6px; flex-wrap:wrap;}
-  .cat-chip{font-size:10.5px; font-family:var(--font-mono); text-transform:uppercase; letter-spacing:.04em; color:var(--text-faint);}
-  .card-actions{display:flex; gap:10px; margin-top:auto; padding-top:8px;}
-  .card-link{font-family:var(--font-mono); font-size:12.5px; padding:9px 14px; border-radius:6px; border:1px solid var(--border); color:var(--text-dim); transition:all .15s; flex:1; text-align:center;}
-  .card-link:hover{border-color:var(--amber-dim); color:var(--amber);}
-  .card-link.primary{background:var(--bg-elevated); color:var(--text);}
-
-  /* ---------- CASE STUDY (details/summary) ---------- */
-  details.case{border-top:1px solid var(--border-soft); margin-top:2px;}
-  details.case summary{
-    list-style:none; cursor:pointer; padding:10px 0; font-family:var(--font-mono); font-size:12.5px;
-    color:var(--blue); display:flex; align-items:center; gap:6px; user-select:none;
-  }
-  details.case summary::-webkit-details-marker{display:none;}
-  details.case summary::before{content:"›"; font-size:16px; transition:transform .15s; display:inline-block;}
-  details.case[open] summary::before{transform:rotate(90deg);}
-  .case-body{padding:6px 2px 14px; font-size:14px; color:var(--text-dim);}
-  .case-block{margin-bottom:18px;}
-  .case-block h4{font-family:var(--font-mono); font-size:11.5px; text-transform:uppercase; letter-spacing:.06em; color:var(--text-faint); margin-bottom:8px;}
-  .case-block p{margin-bottom:8px;}
-  .case-block ul{margin-top:6px;}
-  .case-block li{position:relative; padding-left:16px; margin-bottom:6px; font-size:13.5px;}
-  .case-block li::before{content:"—"; position:absolute; left:0; color:var(--text-faint);}
-  .stack-groups{display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:14px;}
-  .stack-group h5{font-family:var(--font-mono); font-size:11px; color:var(--amber); margin-bottom:6px;}
-  .stack-group span{display:block; font-size:13px; color:var(--text-dim); margin-bottom:3px;}
-
-  /* architecture diagram */
-  .arch{display:flex; flex-direction:column; align-items:center; gap:0; padding:20px 0;}
-  .arch-node{
-    font-family:var(--font-mono); font-size:12.5px; padding:10px 20px; border:1px solid var(--border);
-    border-radius:7px; background:var(--bg-panel-2); color:var(--text); text-align:center; min-width:180px;
-  }
-  .arch-connector{width:1px; height:22px; background:var(--border-soft); position:relative;}
-  .arch-connector::after{content:"↓"; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); color:var(--text-faint); font-size:12px; background:var(--bg-panel);}
-  .arch-row{display:flex; align-items:center; gap:18px; flex-wrap:wrap; justify-content:center;}
-  .arch-ext{font-family:var(--font-mono); font-size:11.5px; padding:8px 14px; border:1px dashed var(--border); border-radius:7px; color:var(--text-faint);}
-
-  /* ---------- MORE REPOS ---------- */
-  .repo-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
-  @media (max-width:800px){ .repo-grid{grid-template-columns:1fr 1fr;} }
-  @media (max-width:520px){ .repo-grid{grid-template-columns:1fr;} }
-  .repo-chip{
-    border:1px solid var(--border); border-radius:9px; padding:16px 18px; transition:border-color .15s;
-    display:flex; flex-direction:column; gap:6px;
-  }
-  .repo-chip:hover{border-color:var(--border-soft); background:var(--bg-panel);}
-  .repo-chip .rname{font-family:var(--font-mono); font-size:13.5px; color:var(--text);}
-  .repo-chip .rdesc{font-size:12.5px; color:var(--text-faint);}
-
-  /* ---------- SECURITY SECTION ---------- */
-  .sec-cats{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:40px;}
-  .sec-cat{font-family:var(--font-mono); font-size:12px; padding:7px 13px; border:1px solid var(--border); border-radius:6px; color:var(--text-dim);}
-  .lab-list{display:flex; flex-direction:column; gap:16px;}
-  .lab{
-    border:1px solid var(--border); border-radius:12px; background:var(--bg-panel); overflow:hidden;
-  }
-  .lab-head{display:flex; justify-content:space-between; align-items:center; padding:20px 24px; cursor:pointer; gap:16px;}
-  .lab-head:hover{background:var(--bg-panel-2);}
-  .lab-title{display:flex; align-items:center; gap:12px;}
-  .lab-icon{width:34px; height:34px; border-radius:8px; background:var(--bg-elevated); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; color:var(--blue); font-family:var(--font-mono); font-size:14px; flex:none;}
-  .lab-name{font-family:var(--font-display); font-size:16.5px;}
-  .lab-sub{font-size:12.5px; color:var(--text-faint); font-family:var(--font-mono); margin-top:2px;}
-  .lab-body{padding:0 24px 24px; display:none; border-top:1px solid var(--border-soft);}
-  .lab.open .lab-body{display:block;}
-  .lab-grid{display:grid; grid-template-columns:1fr 1fr; gap:20px; padding-top:20px;}
-  @media (max-width:700px){ .lab-grid{grid-template-columns:1fr;} }
-  .lab-field h5{font-family:var(--font-mono); font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--amber); margin-bottom:6px;}
-  .lab-field p, .lab-field li{font-size:13.5px; color:var(--text-dim);}
-  .skill-tags{display:flex; flex-wrap:wrap; gap:6px; margin-top:14px;}
-  .skill-tag{font-family:var(--font-mono); font-size:11px; color:var(--green); background:rgba(111,191,139,0.08); padding:4px 9px; border-radius:5px;}
-
-  /* ---------- SKILLS ---------- */
-  .skills-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:26px;}
-  @media (max-width:860px){ .skills-grid{grid-template-columns:repeat(2,1fr);} }
-  @media (max-width:560px){ .skills-grid{grid-template-columns:1fr;} }
-  .skill-col h4{font-family:var(--font-mono); font-size:12px; color:var(--blue); text-transform:uppercase; letter-spacing:.05em; margin-bottom:14px; padding-bottom:10px; border-bottom:1px solid var(--border-soft);}
-  .skill-col ul li{font-size:14px; color:var(--text-dim); padding:5px 0; display:flex; align-items:center; gap:9px;}
-  .skill-col ul li::before{content:""; width:5px; height:5px; border-radius:50%; background:var(--amber-dim); flex:none;}
-
-  /* ---------- TIMELINE ---------- */
-  .timeline{position:relative; padding-left:28px;}
-  .timeline::before{content:""; position:absolute; left:5px; top:6px; bottom:6px; width:1px; background:var(--border-soft);}
-  .tl-group{margin-bottom:34px;}
-  .tl-group-title{font-family:var(--font-mono); font-size:12px; color:var(--amber); text-transform:uppercase; letter-spacing:.06em; margin-bottom:16px;}
-  .tl-item{position:relative; padding-bottom:22px;}
-  .tl-item::before{content:""; position:absolute; left:-28px; top:5px; width:9px; height:9px; border-radius:50%; background:var(--bg); border:2px solid var(--blue);}
-  .tl-item h4{font-size:15.5px; margin-bottom:4px;}
-  .tl-meta{font-family:var(--font-mono); font-size:12px; color:var(--text-faint); margin-bottom:6px;}
-  .tl-item p{font-size:13.5px; color:var(--text-dim);}
-
-  /* ---------- CONTACT ---------- */
-  .contact-box{
-    border:1px solid var(--border); border-radius:14px; padding:48px; text-align:center;
-    background:radial-gradient(circle at 50% 0%, rgba(227,168,87,0.06), transparent 60%);
-  }
-  .contact-box h2{font-size:clamp(24px,3.4vw,34px); margin-bottom:14px;}
-  .contact-box p{color:var(--text-dim); max-width:48ch; margin:0 auto 30px;}
-  .contact-links{display:flex; flex-wrap:wrap; justify-content:center; gap:12px;}
-  .placeholder-note{margin-top:22px; font-family:var(--font-mono); font-size:11.5px; color:var(--text-faint);}
-
-  footer{padding:36px 0; border-top:1px solid var(--border-soft);}
-  .footer-inner{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; font-size:13px; color:var(--text-faint); font-family:var(--font-mono);}
-  .footer-inner a{color:var(--text-faint); transition:color .15s;}
-  .footer-inner a:hover{color:var(--amber);}
-
-  .reveal{opacity:0; transform:translateY(14px); transition:opacity .5s ease, transform .5s ease;}
-  .reveal.in{opacity:1; transform:translateY(0);}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="nav">
-  <div class="nav-inner">
-    <a href="#home" class="nav-brand"><span class="dot"></span> stacy_macharia</a>
-    <nav class="nav-links" id="navLinks">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="#top" class="brand" aria-label="Stacy Macharia, home">
+      <span class="brand-mark">&lt;/&gt;</span> Stacy<span class="brand-dim">.dev</span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Primary">
+      <a href="#top">Home</a>
       <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#security">Security</a>
       <a href="#skills">Skills</a>
-      <a href="#experience">Experience</a>
-      <a href="#contact" class="nav-cta">Contact</a>
+      <a href="#projects">Projects</a>
+      <a href="#security">Cybersecurity</a>
+      <a href="#contact">Contact</a>
     </nav>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span></span></button>
+
+    <div class="header-actions">
+      <a href="mailto:machariastacy034@gmail.com" class="btn btn-primary btn-sm">Hire Me ↗</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span>
+      </button>
+    </div>
   </div>
 </header>
 
+<main id="main">
+
 <!-- ============ HERO ============ -->
-<section class="hero" id="home">
+<section class="hero" id="top">
   <div class="wrap hero-grid">
-    <div>
-      <span class="eyebrow">Nairobi, Kenya · Open to junior / internship / remote roles</span>
-      <h1>Stacy Gathigia Macharia<br><span class="accent">builds systems</span><br>and is learning to break them, safely.</h1>
-      <p class="lede">Software developer and full-stack developer. Currently building the Convex backend for Sentinel, a compliance and identity-verification platform, and training as a SOC analyst on the side.</p>
+    <div class="hero-copy reveal">
+      <span class="eyebrow">Software Engineer &middot; Cybersecurity</span>
+      <h1 class="hero-title">Hi, I'm <span class="grad-text">Stacy</span>.</h1>
+      <h2 class="hero-sub">I build software that solves real problems.</h2>
+      <p class="hero-lede">Software developer from Egerton University, focused on backend engineering and full-stack development. I ship Django/React systems wired into real payment and auth flows, and train as a SOC analyst on the side &mdash; log analysis, SIEM, and threat detection.</p>
+
       <div class="hero-ctas">
-        <a href="#projects" class="btn btn-primary">View Projects</a>
-        <a href="https://github.com/Trixiemacharia" target="_blank" rel="noopener" class="btn btn-outline">GitHub ↗</a>
-        <a href="#" class="btn btn-ghost" id="cvLink">Download CV</a>
+        <a href="#projects" class="btn btn-primary">View My Work ↗</a>
+        <a href="#" class="btn btn-outline" id="cvLink">Download CV ↓</a>
+      </div>
+      <div class="hero-links">
+        <a href="https://github.com/Trixiemacharia" target="_blank" rel="noopener">GitHub ↗</a>
+        <span class="hero-links-dot">&middot;</span>
+        <a href="https://www.linkedin.com/in/stacy-macharia-3bb908412/" target="_blank" rel="noopener">LinkedIn ↗</a>
       </div>
     </div>
-    <div class="terminal">
-      <div class="term-bar">
-        <span class="term-dot" style="background:#E3735A"></span>
-        <span class="term-dot" style="background:#E3C05A"></span>
-        <span class="term-dot" style="background:#6FBF8B"></span>
-        <span class="term-title">trixie@kali: ~</span>
+
+    <div class="hero-visual reveal">
+      <div class="hero-blob" aria-hidden="true"></div>
+      <div class="hero-dotgrid" aria-hidden="true"></div>
+      <div class="hero-avatar">
+        <span>SM</span>
       </div>
-      <div class="term-body" id="termBody"></div>
+      <div class="code-card" aria-hidden="true">
+        <div class="code-card-bar"><span></span><span></span><span></span></div>
+        <pre class="code-card-body"><span class="c-kw">const</span> developer = {
+  name: <span class="c-str">"Stacy Gathigia Macharia"</span>,
+  focus: <span class="c-str">"Software Engineering"</span>,
+  interests: [<span class="c-str">"Cybersecurity"</span>, <span class="c-str">"Backend"</span>], <span class="c-str">"Full-stack system development"</span>]
+};</pre>
+      </div>
     </div>
   </div>
-</section>
 
-<hr class="divider">
+  <div class="tech-strip reveal">
+    <span class="tech-strip-label">Technologies I Work With</span>
+    <div class="tech-row" id="techRow"></div>
+  </div>
+</section>
 
 <!-- ============ ABOUT ============ -->
 <section class="section" id="about">
   <div class="wrap about-grid">
     <div class="about-text reveal">
-      <span class="section-tag">01 · About</span>
-      <h2 style="margin-bottom:22px;">Backend-first, security-curious.</h2>
-      <p>Stacy — <strong>Trixie</strong> to teammates — is a software developer from Egerton University. Most of her recent work sits at the backend: API design, state machines, ledgers, and authentication, with React on the frontend when a project calls for it.</p>
-      <p>She currently works on <strong>Sentinel</strong>, a compliance and identity-verification platform, where she's leading a backend migration to Convex — scaffolding the schema, API key auth, HTTP routes, a risk-engine state machine, a credit ledger, and a webhook retry system, alongside a small team.</p>
-      <p>Outside of coursework and Sentinel, she ships personal projects end-to-end: a face-recognition access control system with real-time alerting, a multi-tenant billing platform wired into M-Pesa, and earlier full-stack builds in Django and React. In parallel, she's putting in deliberate hours on the security side — Burp Suite, Wireshark, and Splunk — working blind SQL injection labs and DNS-tunneling detection exercises to build the same instincts from the attacker's side.</p>
+      <span class="section-tag">About Me</span>
+      <h2>Building software. Learning security.<br>Solving real problems.</h2>
+      <p>I'm a software developer who spends most of my time in the backend &mdash; API design, auth, state machines, and the parts of a system that have to hold up under real conditions, not just look good in a demo. React shows up on the frontend when a project calls for it.</p>
+      <p>Alongside coursework, I ship personal projects end-to-end: a multi-tenant billing platform wired into M-Pesa, a face-recognition access-control system with real-time alerting, and earlier full-stack builds in Django and React. In parallel, I'm training as a SOC analyst &mdash; working SQL injection labs, DNS-tunneling detection, and SIEM fundamentals to understand systems from the attacker's side too.</p>
+      <a href="#projects" class="btn btn-outline btn-sm">More About My Work →</a>
     </div>
-    <div class="facts reveal">
-      <div class="fact-row"><span class="fact-label">location</span><span class="fact-value">Nairobi, Kenya</span></div>
-      <div class="fact-row"><span class="fact-label">education</span><span class="fact-value">B.Sc. Computer Science, Egerton University</span></div>
-      <div class="fact-row"><span class="fact-label">graduating</span><span class="fact-value">November 2026</span></div>
-      <div class="fact-row"><span class="fact-label">current_role</span><span class="fact-value">Backend Developer, Sentinel</span></div>
-      <div class="fact-row"><span class="fact-label">also_training</span><span class="fact-value">SOC Analyst, Ongoza Cyber Hub</span></div>
-      <div class="fact-row"><span class="fact-label">environment</span><span class="fact-value">Kali Linux desktop</span></div>
-      <div class="fact-row"><span class="fact-label">looking_for</span><span class="fact-value">Junior dev · Internship · Remote</span></div>
-      <div class="fact-row"><span class="fact-label">github</span><span class="fact-value">@Trixiemacharia</span></div>
+
+    <div class="stats-grid reveal" id="statsGrid"><!-- injected by JS --></div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============ SKILLS ============ -->
+<section class="section section-alt" id="skills">
+  <div class="wrap">
+    <div class="section-head reveal center">
+      <span class="section-tag">My Skills</span>
+      <h2>Technologies I Work With</h2>
+      <p>Grouped by where they show up in real projects &mdash; not arbitrary percentage bars.</p>
     </div>
+    <div class="skills-grid" id="skillsGrid"><!-- injected by JS --></div>
   </div>
 </section>
 
@@ -375,10 +124,10 @@
 <!-- ============ PROJECTS ============ -->
 <section class="section" id="projects">
   <div class="wrap">
-    <div class="section-head reveal">
-      <span class="section-tag">02 · Selected Work</span>
-      <h2>Projects</h2>
-      <p>Personal builds, pulled from source. Nothing here has a live URL unless it's actually deployed right now — the rest ship as source you can clone and run.</p>
+    <div class="section-head reveal center">
+      <span class="section-tag">Featured Projects</span>
+      <h2>Things I've Built</h2>
+      <p>Personal builds, pulled from source.</p>
     </div>
 
     <div class="filter-bar" id="filterBar">
@@ -389,58 +138,30 @@
       <button class="filter-btn" data-filter="saas">SaaS</button>
     </div>
 
-    <div class="project-grid" id="projectGrid"><!-- injected by JS --></div>
+    <div class="project-grid" id="projectGrid"></div>
 
-    <h3 style="margin-top:60px; margin-bottom:18px; font-size:16px; color:var(--text-dim); font-weight:500;">More on GitHub</h3>
-    <div class="repo-grid">
-      <a class="repo-chip" href="https://github.com/Trixiemacharia/Laundry-managent-system" target="_blank" rel="noopener">
-        <span class="rname">Laundry-managent-system</span>
-        <span class="rdesc">Order tracking &amp; service workflow app — coursework project.</span>
-      </a>
-      <a class="repo-chip" href="https://github.com/Trixiemacharia/egerton_laundry" target="_blank" rel="noopener">
-        <span class="rname">egerton_laundry</span>
-        <span class="rdesc">Earlier iteration of the laundry management system.</span>
-      </a>
-      <a class="repo-chip" href="https://github.com/Trixiemacharia/Demo" target="_blank" rel="noopener">
-        <span class="rname">Demo</span>
-        <span class="rdesc">Role-based access control demo — Python decorators.</span>
-      </a>
-      <a class="repo-chip" href="https://github.com/Trixiemacharia/url-shortener" target="_blank" rel="noopener">
-        <span class="rname">url-shortener</span>
-        <span class="rdesc">View source on GitHub.</span>
-      </a>
-      <a class="repo-chip" href="https://github.com/Trixiemacharia/movieApp" target="_blank" rel="noopener">
-        <span class="rname">movieApp</span>
-        <span class="rdesc">View source on GitHub.</span>
-      </a>
-      <a class="repo-chip" href="https://github.com/Trixiemacharia/CRM" target="_blank" rel="noopener">
-        <span class="rname">CRM</span>
-        <span class="rdesc">View source on GitHub.</span>
-      </a>
-      <a class="repo-chip" href="https://github.com/Trixiemacharia?tab=repositories" target="_blank" rel="noopener">
-        <span class="rname">+ more repositories →</span>
-        <span class="rdesc">Full list on GitHub.</span>
-      </a>
-    </div>
+    <h3 class="subheading">More on GitHub</h3>
+    <div class="repo-grid" id="repoGrid"></div>
   </div>
 </section>
 
 <hr class="divider">
 
-<!-- ============ SECURITY / SOC ============ -->
-<section class="section section-alt" id="security">
+<!-- ============ CYBERSECURITY / SOC ============ -->
+<section class="section section-cyber" id="security">
   <div class="wrap">
-    <div class="section-head reveal">
-      <span class="section-tag">03 · Cybersecurity &amp; SOC</span>
-      <h2>Learning to see systems the way an attacker does.</h2>
-      <p>Currently training as a SOC Analyst at Ongoza Cyber Hub. This is hands-on, in-progress work — not a certificate wall.</p>
+    <div class="section-head reveal center">
+      <span class="section-tag section-tag-cyber">Cybersecurity &amp; SOC</span>
+      <h2>Exploring the security side of software and infrastructure.</h2>
+      <p>I'm developing practical SOC skills through training at Ongoza Cyber Hub and hands-on labs &mdash; log analysis, SIEM, threat detection, and network security. This is in-progress, hands-on work, not a certificate wall.</p>
     </div>
     <div class="sec-cats reveal">
-      <span class="sec-cat">Web App Security</span>
-      <span class="sec-cat">Network Analysis</span>
-      <span class="sec-cat">SIEM (in progress)</span>
+      <span class="sec-cat">SOC Operations</span>
+      <span class="sec-cat">SIEM</span>
+      <span class="sec-cat">Log Analysis</span>
       <span class="sec-cat">Threat Detection</span>
-      <span class="sec-cat">MITRE ATT&amp;CK (studying)</span>
+      <span class="sec-cat">Network Security</span>
+      <span class="sec-cat">MITRE ATT&amp;CK</span>
       <span class="sec-cat">Linux / Kali</span>
     </div>
 
@@ -450,107 +171,14 @@
 
 <hr class="divider">
 
-<!-- ============ SKILLS ============ -->
-<section class="section" id="skills">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="section-tag">04 · Skills</span>
-      <h2>Stack</h2>
-      <p>Technologies demonstrated in the projects above — not a wishlist.</p>
-    </div>
-    <div class="skills-grid">
-      <div class="skill-col reveal">
-        <h4>Languages</h4>
-        <ul>
-          <li>Python</li><li>JavaScript / TypeScript</li><li>SQL</li><li>Bash</li>
-        </ul>
-      </div>
-      <div class="skill-col reveal">
-        <h4>Backend</h4>
-        <ul>
-          <li>Django &amp; Django REST Framework</li><li>Convex</li><li>Celery</li>
-        </ul>
-      </div>
-      <div class="skill-col reveal">
-        <h4>Frontend</h4>
-        <ul>
-          <li>React</li><li>Vite</li><li>CSS3</li><li>Chart.js</li>
-        </ul>
-      </div>
-      <div class="skill-col reveal">
-        <h4>Data &amp; Infra</h4>
-        <ul>
-          <li>PostgreSQL</li><li>MySQL / SQLite</li><li>Redis</li><li>Docker / Docker Compose</li>
-        </ul>
-      </div>
-      <div class="skill-col reveal">
-        <h4>Auth &amp; APIs</h4>
-        <ul>
-          <li>JWT (incl. token blacklisting)</li><li>OAuth (Google)</li><li>REST API design</li><li>WebSockets</li>
-        </ul>
-      </div>
-      <div class="skill-col reveal">
-        <h4>Security Tooling</h4>
-        <ul>
-          <li>Burp Suite (Intruder, Repeater)</li><li>Wireshark</li><li>Splunk (learning)</li><li>Kali Linux</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<hr class="divider">
-
 <!-- ============ EXPERIENCE ============ -->
-<section class="section section-alt" id="experience">
+<section class="section" id="experience">
   <div class="wrap">
-    <div class="section-head reveal">
-      <span class="section-tag">05 · Experience</span>
-      <h2>Timeline</h2>
+    <div class="section-head reveal center">
+      <span class="section-tag">Journey</span>
+      <h2>Experience &amp; Timeline</h2>
     </div>
-    <div class="timeline">
-      <div class="tl-group reveal">
-        <div class="tl-group-title">Professional</div>
-        <div class="tl-item">
-          <h4>Backend Developer — DeepTrack Inc</h4>
-          <div class="tl-meta">Current</div>
-          <p>Migrating a compliance / identity-verification platform's backend to Convex — schema, API key auth, HTTP routes, a risk-engine state machine, a credit ledger, and webhook retries. Working alongside a team lead and two other engineers.</p>
-        </div>
-        <div class="tl-item">
-          <h4>SOC Analyst Training — Ongoza Cyber Hub</h4>
-          <div class="tl-meta">Current</div>
-          <p>Hands-on SOC training covering log analysis, network monitoring, and threat detection — see the Security section above for specific lab work.</p>
-        </div>
-        <div class="tl-item">
-          <h4>Industrial Attachment — Ampitech Solutions</h4>
-          <div class="tl-meta">Prior</div>
-          <p>Contributed OSINT and digital research work to the CCIJ Election Watch Project.</p>
-        </div>
-      </div>
-      <div class="tl-group reveal">
-        <div class="tl-group-title">Education</div>
-        <div class="tl-item">
-          <h4>B.Sc. Computer Science — Egerton University</h4>
-          <div class="tl-meta">Final year · Graduating November 2026</div>
-          <p>Coursework and capstone projects including FitTrack (fitness tracking) and a laundry service management system.</p>
-        </div>
-      </div>
-      <div class="tl-group reveal">
-        <div class="tl-group-title">Self-Directed Builds</div>
-        <div class="tl-item">
-          <h4>PayKit — multi-tenant billing platform</h4>
-          <p>FastAPI + React, M-Pesa Daraja integration, real-time updates via WebSockets. In development.</p>
-        </div>
-        <div class="tl-item">
-          <h4>FaceGuard — face recognition access control</h4>
-          <p>Django, DeepFace/OpenCV, real-time dashboard and alerting. Phase 2 complete.</p>
-        </div>
-        <div class="tl-item">
-          <h4>Moonlite Café — restaurant &amp; reservations site</h4>
-          <p>Django + React, Docker Compose. Previously deployed on Render.</p>
-        </div>
-      </div>
-    </div>
+    <div class="timeline" id="timeline"><!-- injected by JS --></div>
   </div>
 </section>
 
@@ -560,322 +188,40 @@
 <section class="section" id="contact">
   <div class="wrap">
     <div class="contact-box reveal">
-      <h2>Let's talk.</h2>
-      <p>Open to junior developer roles, internships, and remote work — Kenyan or international.</p>
+      <span class="section-tag center-tag">Let's Connect</span>
+      <h2>Let's build something.</h2>
+      <p>Open to junior developer roles, internships, and remote work &mdash; Kenyan or international. If you're hiring, or just want to talk shop, I'd like to hear from you.</p>
       <div class="contact-links">
-        <a href="https://github.com/Trixiemacharia" target="_blank" rel="noopener" class="btn btn-outline">GitHub ↗</a>
-        <a href="mailto:machariastacy034@gmail.com" class="btn btn-outline" id="emailLink">Email</a>
-        <a href="https://www.linkedin.com/in/stacy-macharia-3bb908412/" class="btn btn-outline" id="linkedInLink">LinkedIn ↗</a>
+        <a href="mailto:machariastacy034@gmail.com" class="btn btn-primary">Get In Touch ↗</a>
+        <a href="https://github.com/Trixiemacharia" target="_blank" rel="noopener" class="btn btn-outline">View GitHub ↗</a>
       </div>
-      <p class="placeholder-note"></p>
     </div>
   </div>
 </section>
 
+</main>
+
 <footer>
   <div class="wrap footer-inner">
-    <span>© <span id="year"></span> Stacy Gathigia Macharia</span>
-    <span>Built with HTML, CSS &amp; vanilla JS.</span>
+    <div class="footer-brand">
+      <div class="footer-name">Stacy Gathigia Macharia</div>
+      <div class="footer-tagline">Software Engineering &middot; Full-Stack Development &middot; Cybersecurity</div>
+    </div>
+    <div class="footer-socials">
+      <a href="https://github.com/Trixiemacharia" target="_blank" rel="noopener" aria-label="GitHub" class="icon-btn">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.16-.02-2.1-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.7-1.28-1.7-1.04-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.58.24 2.75.12 3.04.74.81 1.18 1.84 1.18 3.1 0 4.43-2.7 5.4-5.27 5.69.42.36.78 1.08.78 2.17 0 1.57-.02 2.83-.02 3.22 0 .3.2.66.79.55A10.52 10.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/stacy-macharia-3bb908412/" target="_blank" rel="noopener" aria-label="LinkedIn" class="icon-btn">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM.5 8.98h4.96V23H.5V8.98ZM8.5 8.98h4.75v1.92h.07c.66-1.19 2.27-2.44 4.68-2.44 5 0 5.92 3.15 5.92 7.25V23h-4.96v-6.4c0-1.53-.03-3.5-2.15-3.5-2.15 0-2.48 1.65-2.48 3.39V23H8.5V8.98Z"/></svg>
+      </a>
+      <a href="mailto:machariastacy034@gmail.com" aria-label="Email" class="icon-btn">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4.5" width="20" height="15" rx="2.2"/><path d="m3 6 9 7 9-7"/></svg>
+      </a>
+    </div>
+    <div class="footer-copy">© <span id="year"></span> Stacy Gathigia Macharia. All rights reserved.</div>
   </div>
 </footer>
 
-<script>
-document.getElementById('year').textContent = new Date().getFullYear();
-
-/* mobile nav */
-const navToggle = document.getElementById('navToggle');
-const navLinks = document.getElementById('navLinks');
-navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
-navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
-
-/* reveal on scroll */
-const revealEls = document.querySelectorAll('.reveal');
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-}, {threshold:0.12});
-revealEls.forEach(el => io.observe(el));
-
-/* terminal typing */
-const termLines = [
-  {p:'whoami', d:1},
-  {o:'stacy_macharia <span class="out-strong">(trixie)</span>'},
-  {p:'cat role.txt', d:1},
-  {o:'Backend-leaning full-stack developer'},
-  {o:'Building auth, APIs &amp; state machines for Sentinel'},
-  {o:'Training as a SOC Analyst'},
-  {p:'cat status.txt', d:1},
-  {o:'<span class="out-key">education</span>: Egerton University'},
-  {o:'<span class="out-key">status</span>: Open to junior dev / internship / remote roles'},
-];
-const termBody = document.getElementById('termBody');
-let li = 0;
-function typeLine(){
-  if(li >= termLines.length){
-    const c = document.createElement('span'); c.className='cursor';
-    termBody.appendChild(c);
-    return;
-  }
-  const line = termLines[li];
-  const row = document.createElement('div');
-  if(line.p){
-    row.innerHTML = '<span class="prompt">trixie@kali</span><span class="path">:~$</span> ' + line.p;
-  } else {
-    row.innerHTML = line.o;
-  }
-  termBody.appendChild(row);
-  li++;
-  setTimeout(typeLine, line.p ? 260 : 130);
-}
-setTimeout(typeLine, 350);
-
-/* ---------------- PROJECT DATA ---------------- */
-const projects = [
-  {
-    name: 'PayKit',
-    cats: ['fullstack','backend','saas'],
-    catLabels: ['Full Stack','Backend','SaaS'],
-    status: 'dev', statusLabel: 'In Development',
-    desc: 'A multi-tenant subscription billing platform with M-Pesa Daraja integration, JWT + Google OAuth, and real-time updates over WebSockets.',
-    built: 'Backend APIs, JWT auth with token blacklisting, M-Pesa Daraja integration, async billing jobs, rate limiting.',
-    tags: ['FastAPI','React','JWT','OAuth','WebSockets','Docker','M-Pesa Daraja'],
-    github: 'https://github.com/Trixiemacharia/PayKit',
-    featured: true,
-    case: {
-      overview: 'PayKit is a subscription billing platform built to handle multiple tenants on one system — the kind of infrastructure a SaaS company needs to charge customers on a recurring basis, with local payment rails built in from the start rather than bolted on.',
-      problem: 'Most billing tutorials assume Stripe and a single tenant. Building for the Kenyan market means integrating M-Pesa\'s Daraja API directly, handling asynchronous payment callbacks reliably, and keeping tenants\' data and permissions cleanly separated.',
-      solution: 'A FastAPI backend handles auth, tenant isolation, and billing logic, with Celery workers processing payment callbacks and scheduled billing jobs asynchronously via Redis. A React admin dashboard gives visibility into subscriptions and payment status in real time via WebSockets.',
-      features: ['Multi-tenant data model with role-based access control','JWT authentication with token blacklisting on logout/revoke','Google OAuth as an alternate login path','M-Pesa Daraja API integration for payment initiation and callbacks','Async job processing for billing cycles via Celery + Redis','Real-time dashboard updates over WebSockets','API rate limiting','Dockerized for consistent local and deployment environments'],
-      stack: {Frontend:['React'], Backend:['FastAPI','Celery'], Database:['Redis (jobs/queue)'], Authentication:['JWT','Google OAuth'], Infrastructure:['Docker'], APIs:['M-Pesa Daraja API'], DevOps:['Docker Compose']},
-      arch: {frontend:'React Admin Dashboard', backend:'FastAPI + Celery Workers', database:'Redis (queue) + App DB', external:['M-Pesa Daraja API','Google OAuth']},
-      challenges: ['Integrating M-Pesa\'s Daraja API — handling STK push initiation and asynchronous payment confirmation callbacks correctly','Designing JWT auth that supports real token revocation via a blacklist, not just expiry','Keeping billing jobs idempotent when running asynchronously through Celery','Structuring the data model so tenants stay isolated without duplicating schema logic'],
-      learned: 'Hands-on experience with payment gateway integration in a market where card rails aren\'t the default, plus the operational realities of async job processing — retries, idempotency, and failure handling — that don\'t show up when everything runs synchronously.'
-    }
-  },
-  {
-    name: 'FaceGuard',
-    cats: ['fullstack','backend'],
-    catLabels: ['Full Stack','Backend'],
-    status: 'source', statusLabel: 'Source Available',
-    desc: 'A real-world face recognition access control system with a live guard dashboard, enrolment flow, and real-time alerting.',
-    built: 'Django backend, recognition pipeline, WebSocket-based live dashboard, alerting, and the enrolment/guard-facing views.',
-    tags: ['Django','DeepFace','OpenCV','Django Channels','Celery','Chart.js'],
-    github: 'https://github.com/Trixiemacharia/FaceGuard',
-    featured: true,
-    case: {
-      overview: 'FaceGuard is an access-control system that recognizes enrolled faces at an entry point and logs access events in real time, giving a guard-facing dashboard visibility into who came through and when.',
-      problem: 'Manual access logs and badge systems are easy to bypass or forget to update. The goal was a system where enrolment, recognition, and logging happen automatically, with alerts when something looks wrong.',
-      solution: 'A Django backend runs the recognition pipeline using DeepFace and OpenCV, with Django Channels pushing live events over WebSockets to a dashboard. Celery handles background work like alerting, and Chart.js visualizes access activity over time.',
-      features: ['Face enrolment flow for adding new authorized users','Real-time recognition and access logging','Live guard dashboard over WebSockets (Django Channels)','Admin dashboard with access-log charts (Chart.js)','Zone management for multi-entry-point setups','Email/SMS alerting on flagged events','Optional Redis-backed Celery for background alert processing'],
-      stack: {Frontend:['Django templates'], Backend:['Django','Django Channels','Celery'], Database:['SQLite (default) / MySQL (optional)'], Authentication:['Django auth'], Infrastructure:['Redis (optional, for Channels/Celery)'], APIs:['DeepFace / OpenCV (recognition)'], Other:['Chart.js']},
-      arch: {frontend:'Guard Dashboard (Django templates + WS)', backend:'Django + Channels + Celery', database:'SQLite / MySQL', external:['DeepFace / OpenCV pipeline','Email/SMS alert provider']},
-      challenges: ['Getting real-time recognition events onto a live dashboard without polling, using Django Channels over WebSockets','Structuring zone management so the same pipeline supports multiple entry points','Wiring alerting (email/SMS) into the recognition pipeline without blocking the request cycle'],
-      learned: 'This project surfaced a real constraint worth being upfront about: extended recognition sessions can strain RAM and inference stability, which shaped how she thinks about running ML inference inside a web request/response cycle versus offloading it to a dedicated worker.',
-      note: 'Known limitation: extended live-recognition sessions can cause RAM and inference instability — a good candidate for offloading inference to a separate worker process in a future pass.'
-    }
-  },
-  {
-    name: 'Moonlite Café',
-    cats: ['fullstack','frontend'],
-    catLabels: ['Full Stack','Frontend'],
-    status: 'source', statusLabel: 'Source Available',
-    desc: 'A restaurant website focused on menu showcasing and reservation booking. Previously deployed on Render.',
-    built: 'Full-stack build across Django backend and React frontend, containerized with Docker Compose.',
-    tags: ['Django','React','Docker Compose','Render'],
-    github: 'https://github.com/Trixiemacharia/Moonlight-Website',
-    featured: true,
-    case: {
-      overview: 'Moonlite Café is a restaurant site built around two jobs: showing off the menu clearly, and making it easy to book a table without a phone call.',
-      problem: 'Small restaurant sites are often either a static PDF menu or an over-engineered booking system. The goal was something in between — a real booking flow backed by an actual database, without unnecessary complexity.',
-      solution: 'A Django backend serves the menu and reservation data through an API consumed by a React frontend. The whole stack was containerized with Docker Compose so the dev and deployment environments matched, and it was deployed to Render for a period before being taken down.',
-      features: ['Menu showcase with categorized items','Reservation booking flow','Django backend API','React frontend','Docker Compose for local + deployment parity'],
-      stack: {Frontend:['React'], Backend:['Django'], Database:['(Django ORM-backed)'], Infrastructure:['Docker Compose'], DevOps:['Previously deployed on Render']},
-      arch: {frontend:'React (menu + booking UI)', backend:'Django REST API', database:'Django ORM-backed DB', external:['Render (previous deployment target)']},
-      challenges: ['Designing a reservation data model that avoids double-booking a table','Getting Docker Compose to mirror the deployed environment closely enough that deployment wasn\'t a surprise'],
-      learned: 'First project taken all the way to a live deployment — the operational side (environment variables, container orchestration, actually shipping) taught more than the code itself did.',
-      note: 'This project was live on Render for a period and has since been taken down — it is not currently deployed. Source is available and runnable locally.'
-    }
-  },
-  {
-    name: 'FitTrack',
-    cats: ['fullstack','backend'],
-    catLabels: ['Full Stack','Backend'],
-    status: 'source', statusLabel: 'Source Available',
-    desc: 'A fitness tracking capstone project with workout logging, progress charts, and Kenyan food nutrition data.',
-    built: 'Django REST API, data model for workouts/nutrition, and Chart.js progress visualizations.',
-    tags: ['Django','DRF','MySQL','Chart.js'],
-    github: 'https://github.com/Trixiemacharia/Fitness_project',
-    featured: false,
-    case: {
-      overview: 'FitTrack is a fitness tracking app for logging workouts and nutrition, with progress visualized over time.',
-      problem: 'Most fitness app tutorials use generic, US-centric food databases. The goal was a tracker that actually reflects what users are eating, using Kenyan food fixture data.',
-      solution: 'Django REST Framework powers the API for logging workouts and meals, backed by MySQL, with Chart.js rendering progress over time on the frontend.',
-      features: ['Workout logging','Nutrition tracking with Kenyan food fixture data','Progress charts (Chart.js)','REST API via Django REST Framework'],
-      stack: {Backend:['Django','Django REST Framework'], Database:['MySQL'], Other:['Chart.js']},
-      arch: {frontend:'Chart.js dashboard', backend:'Django REST Framework API', database:'MySQL', external:[]},
-      challenges: ['Building a food/nutrition fixture dataset relevant to Kenyan diets instead of relying on a generic international database','Structuring the API so workout and nutrition logs could be queried efficiently for chart rendering'],
-      learned: 'Practical DRF serializer and viewset design, and the value of localizing reference data rather than defaulting to whatever dataset is easiest to find.'
-    }
-  }
-];
-
-const filterBar = document.getElementById('filterBar');
-const grid = document.getElementById('projectGrid');
-const statusClass = {live:'status-live', source:'status-source', dev:'status-dev'};
-
-function stackGroupsHTML(stack){
-  return `<div class="stack-groups">` + Object.entries(stack).map(([k,v]) =>
-    `<div class="stack-group"><h5>${k}</h5>${v.map(x=>`<span>${x}</span>`).join('')}</div>`
-  ).join('') + `</div>`;
-}
-
-function archHTML(a){
-  let html = `<div class="arch">
-    <div class="arch-node">User</div>
-    <div class="arch-connector"></div>
-    <div class="arch-node">${a.frontend}</div>
-    <div class="arch-connector"></div>
-    <div class="arch-node">${a.backend}</div>
-    <div class="arch-connector"></div>
-    <div class="arch-node">${a.database}</div>`;
-  if(a.external && a.external.length){
-    html += `<div class="arch-connector"></div><div class="arch-row">` +
-      a.external.map(e=>`<div class="arch-ext">${e}</div>`).join('') + `</div>`;
-  }
-  html += `</div>`;
-  return html;
-}
-
-function projectCard(p){
-  const cs = p.case;
-  return `
-  <div class="card ${p.featured?'featured':''}" data-cats="${p.cats.join(' ')}">
-    <div class="card-top">
-      <span class="card-title">${p.name}</span>
-      <span class="status-pill ${statusClass[p.status]}"><span class="status-dot"></span>${p.statusLabel}</span>
-    </div>
-    <div class="card-cats">${p.catLabels.map(c=>`<span class="cat-chip">${c}</span>`).join('')}</div>
-    <p class="card-desc">${p.desc}</p>
-    <div class="card-built"><strong>What I built:</strong> ${p.built}</div>
-    <div class="tag-row">${p.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
-    <div class="card-actions">
-      <a class="card-link primary" href="${p.github}" target="_blank" rel="noopener">View Source</a>
-    </div>
-    <details class="case">
-      <summary>View Case Study</summary>
-      <div class="case-body">
-        <div class="case-block"><h4>Overview</h4><p>${cs.overview}</p></div>
-        <div class="case-block"><h4>Problem</h4><p>${cs.problem}</p></div>
-        <div class="case-block"><h4>Solution</h4><p>${cs.solution}</p></div>
-        <div class="case-block"><h4>Key Features</h4><ul>${cs.features.map(f=>`<li>${f}</li>`).join('')}</ul></div>
-        <div class="case-block"><h4>Technology Stack</h4>${stackGroupsHTML(cs.stack)}</div>
-        <div class="case-block"><h4>Architecture</h4>${archHTML(cs.arch)}</div>
-        <div class="case-block"><h4>Engineering Challenges</h4><ul>${cs.challenges.map(c=>`<li>${c}</li>`).join('')}</ul></div>
-        <div class="case-block"><h4>What I Learned</h4><p>${cs.learned}</p></div>
-        ${cs.note ? `<div class="case-block"><h4>Note</h4><p>${cs.note}</p></div>` : ''}
-      </div>
-    </details>
-  </div>`;
-}
-
-function renderProjects(filter){
-  const sorted = [...projects].sort((a,b)=> (b.featured?1:0) - (a.featured?1:0));
-  grid.innerHTML = sorted
-    .filter(p => filter === 'all' || p.cats.includes(filter))
-    .map(projectCard).join('');
-}
-renderProjects('all');
-
-filterBar.addEventListener('click', (e) => {
-  const btn = e.target.closest('.filter-btn');
-  if(!btn) return;
-  filterBar.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  renderProjects(btn.dataset.filter);
-});
-
-/* ---------------- SECURITY LABS DATA ---------------- */
-const labs = [
-  {
-    icon:'01', name:'SQL Injection Exploitation', sub:'PortSwigger Web Security Academy · Burp Suite',
-    objective:'Understand and exploit UNION-based and blind SQL injection vulnerabilities in deliberately vulnerable web applications.',
-    environment:'PortSwigger Web Security Academy labs, Burp Suite, the FoxyProxy browser extension, and Burp Intruder.',
-    method:'Solved multiple labs progressing from UNION-based attacks — extracting data through crafted UNION SELECT queries — to blind SQL injection, where Burp Intruder was used to automate character-by-character extraction of database values, including a full password extraction with no visible query output.',
-    findings:'Confirmed injectable parameters, enumerated database structure, and extracted complete credential values purely from boolean/response-based inference — no direct output required.',
-    skills:['Burp Suite (Intruder, Repeater)','UNION-based SQLi','Blind SQLi','Database enumeration']
-  },
-  {
-    icon:'02', name:'DNS Tunneling Detection', sub:'Kali Linux (host + attacker VM) · Wireshark',
-    objective:'Investigate DNS tunneling as a covert data-exfiltration and C2 channel, and learn to spot it at the network layer.',
-    environment:'A Kali Linux desktop as the host machine, a second Kali Linux VM configured as the attacker, and Wireshark for packet capture and log analysis.',
-    method:'Generated DNS tunneling traffic from the attacker VM directed at the host, captured the traffic with Wireshark, and reviewed DNS query patterns and volume in the resulting logs.',
-    findings:'Identified the traffic signatures that distinguish tunneling from normal DNS activity — unusual query patterns and volume — directly in the packet captures.',
-    skills:['Wireshark','Packet analysis','DNS-based threat detection','Network security monitoring']
-  },
-  {
-    icon:'03', name:'Cyber Kill Chain Exercises', sub:'Hack The Box',
-    objective:'Practice mapping real attack activity onto the stages of the Cyber Kill Chain — from reconnaissance through to actions on objectives.',
-    environment:'Hack The Box labs.',
-    method:'Worked through kill-chain-oriented exercises on HTB, tying each step of an attack to its corresponding kill chain stage.',
-    findings:'Reinforced how the stages connect in practice, not just on paper — useful groundwork for later threat-hunting and detection work.',
-    skills:['Attack lifecycle analysis','Cyber Kill Chain','Hands-on labs (HTB)']
-  },
-  {
-    icon:'04', name:'SIEM Setup with Splunk', sub:'In progress',
-    objective:'Build practical log-analysis and monitoring capability using a real SIEM tool.',
-    environment:'Splunk, installed locally.',
-    method:'Currently setting up Splunk for SIEM-style log ingestion and analysis — this lab is in progress, not yet complete.',
-    findings:'In progress.',
-    skills:['Splunk (learning)','Log analysis','SIEM fundamentals']
-  },
-  {
-    icon:'05', name:'MITRE ATT&CK Study', sub:'Ongoing',
-    objective:'Build a working knowledge of adversary tactics and techniques as catalogued by the MITRE ATT&CK framework, to inform detection and investigation work.',
-    environment:'MITRE ATT&CK framework documentation.',
-    method:'Ongoing, self-directed study — mapping techniques encountered in labs (like the SQLi and DNS tunneling work above) back to the framework.',
-    findings:'Ongoing.',
-    skills:['MITRE ATT&CK','Threat intelligence fundamentals']
-  }
-];
-
-const labList = document.getElementById('labList');
-labList.innerHTML = labs.map((l,i) => `
-  <div class="lab" data-i="${i}">
-    <div class="lab-head">
-      <div class="lab-title">
-        <span class="lab-icon">${l.icon}</span>
-        <div>
-          <div class="lab-name">${l.name}</div>
-          <div class="lab-sub">${l.sub}</div>
-        </div>
-      </div>
-    </div>
-    <div class="lab-body">
-      <div class="lab-grid">
-        <div class="lab-field"><h5>Objective</h5><p>${l.objective}</p></div>
-        <div class="lab-field"><h5>Environment</h5><p>${l.environment}</p></div>
-        <div class="lab-field"><h5>Method</h5><p>${l.method}</p></div>
-        <div class="lab-field"><h5>Findings</h5><p>${l.findings}</p></div>
-      </div>
-      <div class="skill-tags">${l.skills.map(s=>`<span class="skill-tag">${s}</span>`).join('')}</div>
-    </div>
-  </div>
-`).join('');
-
-labList.querySelectorAll('.lab-head').forEach(head => {
-  head.addEventListener('click', () => head.closest('.lab').classList.toggle('open'));
-});
-// open first lab by default
-labList.querySelector('.lab')?.classList.add('open');
-
-/* placeholder link warnings (dev-friendly, non-blocking) */
-document.getElementById('cvLink').addEventListener('click', (e)=>{
-  e.preventDefault();
-  alert('Add a link to your CV file here (e.g. an uploaded PDF URL) — replace the #cvLink href in index.html.');
-});
-document.getElementById('linkedinLink').addEventListener('click', (e)=>{
-  e.preventDefault();
-  alert('Add your LinkedIn profile URL here — replace the #linkedinLink href in index.html.');
-});
-</script>
+<script src="script.js"></script>
 </body>
 </html>
