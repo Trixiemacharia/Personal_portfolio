@@ -32,6 +32,7 @@
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
+      <a href="#screenshots">Gallery</a>
       <a href="#security">Cybersecurity</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -54,7 +55,7 @@
       <span class="eyebrow">Software Engineer &middot; Cybersecurity</span>
       <h1 class="hero-title">Hi, I'm <span class="grad-text">Stacy</span>.</h1>
       <h2 class="hero-sub">I build software that solves real problems.</h2>
-      <p class="hero-lede">Software developer from Egerton University, focused on backend engineering and full-stack development. I ship Django/React systems wired into real payment and auth flows, and train as a SOC analyst on the side &mdash; log analysis, SIEM, and threat detection.</p>
+      <p class="hero-lede">Computer Science student at Egerton University, focused on backend engineering and full-stack development. I ship Django/React systems wired into real payment and auth flows, and train as a SOC analyst on the side &mdash; log analysis, SIEM, and threat detection.</p>
 
       <div class="hero-ctas">
         <a href="#projects" class="btn btn-primary">View My Work ↗</a>
@@ -76,9 +77,9 @@
       <div class="code-card" aria-hidden="true">
         <div class="code-card-bar"><span></span><span></span><span></span></div>
         <pre class="code-card-body"><span class="c-kw">const</span> developer = {
-  name: <span class="c-str">"Stacy Gathigia Macharia"</span>,
+  name: <span class="c-str">"Stacy Macharia"</span>,
   focus: <span class="c-str">"Software Engineering"</span>,
-  interests: [<span class="c-str">"Cybersecurity"</span>, <span class="c-str">"Backend"</span>], <span class="c-str">"Full-stack system development"</span>]
+  interests: [<span class="c-str">"Cybersecurity"</span>, <span class="c-str">"Backend"</span>]
 };</pre>
       </div>
     </div>
@@ -86,7 +87,7 @@
 
   <div class="tech-strip reveal">
     <span class="tech-strip-label">Technologies I Work With</span>
-    <div class="tech-row" id="techRow"></div>
+    <div class="tech-row" id="techRow"><!-- injected by JS --></div>
   </div>
 </section>
 
@@ -96,7 +97,7 @@
     <div class="about-text reveal">
       <span class="section-tag">About Me</span>
       <h2>Building software. Learning security.<br>Solving real problems.</h2>
-      <p>I'm a software developer who spends most of my time in the backend &mdash; API design, auth, state machines, and the parts of a system that have to hold up under real conditions, not just look good in a demo. React shows up on the frontend when a project calls for it.</p>
+      <p>I'm a final-year Computer Science student who spends most of my time in the backend &mdash; API design, auth, state machines, and the parts of a system that have to hold up under real conditions, not just look good in a demo. React shows up on the frontend when a project calls for it.</p>
       <p>Alongside coursework, I ship personal projects end-to-end: a multi-tenant billing platform wired into M-Pesa, a face-recognition access-control system with real-time alerting, and earlier full-stack builds in Django and React. In parallel, I'm training as a SOC analyst &mdash; working SQL injection labs, DNS-tunneling detection, and SIEM fundamentals to understand systems from the attacker's side too.</p>
       <a href="#projects" class="btn btn-outline btn-sm">More About My Work →</a>
     </div>
@@ -127,7 +128,7 @@
     <div class="section-head reveal center">
       <span class="section-tag">Featured Projects</span>
       <h2>Things I've Built</h2>
-      <p>Personal builds, pulled from source.</p>
+      <p>Personal builds, pulled from source. A project only shows Live Demo if it's actually deployed right now.</p>
     </div>
 
     <div class="filter-bar" id="filterBar">
@@ -138,12 +139,37 @@
       <button class="filter-btn" data-filter="saas">SaaS</button>
     </div>
 
-    <div class="project-grid" id="projectGrid"></div>
+    <div class="project-grid" id="projectGrid"><!-- injected by JS --></div>
 
     <h3 class="subheading">More on GitHub</h3>
-    <div class="repo-grid" id="repoGrid"></div>
+    <div class="repo-grid" id="repoGrid"><!-- injected by JS --></div>
   </div>
 </section>
+
+<hr class="divider">
+
+<!-- ============ SCREENSHOTS / VISUAL EVIDENCE ============ -->
+<section class="section section-alt" id="screenshots">
+  <div class="wrap">
+    <div class="section-head reveal center">
+      <span class="section-tag">Visual Evidence</span>
+      <h2>Screenshots</h2>
+      <p>A look at each project in the browser &mdash; not just source code. Slots without an image yet are marked as pending, never faked.</p>
+    </div>
+
+    <div class="gallery-tabs" id="galleryTabs" role="tablist" aria-label="Select project"><!-- injected by JS --></div>
+    <div class="gallery-grid" id="galleryGrid" role="tabpanel"><!-- injected by JS --></div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Screenshot preview" hidden>
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close preview">&times;</button>
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous screenshot">&larr;</button>
+  <div class="lightbox-stage" id="lightboxStage"><!-- injected by JS --></div>
+  <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next screenshot">&rarr;</button>
+  <div class="lightbox-caption" id="lightboxCaption"></div>
+</div>
 
 <hr class="divider">
 

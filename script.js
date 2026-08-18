@@ -148,6 +148,35 @@ const moreRepos = [
   { name: '+ more repositories →', desc: 'Full list on GitHub.', url: 'https://github.com/Trixiemacharia?tab=repositories' },
 ];
 
+/* Screenshot data lives here (before project cards render) so cards can
+   check which projects have a gallery. `src` stays empty until a real
+   screenshot is added — nothing here is a generated or stock image.
+   Drop a file path into `src` and the placeholder frame becomes a real image. */
+const screenshotSets = {
+  PayKit: [
+    { src: 'assets/screenshot/paykit-landing-page.png', title: 'Landing page', caption: 'Account creation and login flow.' },
+    { src: 'assets/screenshot/paykit-dashboard.png', title: 'Dashboard', caption: 'Subscription and tenant overview for the React dashboard.' },
+    { src: '', title: 'M-Pesa Billing Flow', caption: 'STK push initiation and payment status during a billing cycle.' },
+    { src: '', title: 'Tenant Management', caption: 'Multi-tenant view with role-based access control in action.' },
+  ],
+  FaceGuard: [
+    { src: '', title: 'Guard Dashboard', caption: 'Live recognition events streamed over WebSockets via Django Channels.' },
+    { src: '', title: 'Enrolment Flow', caption: 'Adding a new authorized face to the recognition pipeline.' },
+    { src: '', title: 'Access Log Charts', caption: 'Chart.js visualization of access activity over time.' },
+  ],
+  'Moonlite Café': [
+    { src: '', title: 'Menu Page', caption: 'Categorized menu showcase on the React frontend.' },
+    { src: '', title: 'Reservation Booking', caption: 'The table-booking flow backed by the Django API.' },
+  ],
+  FitTrack: [
+    { src: 'assets/screenshot/fittrack-workout-logging.png', title: 'Workout Logging', caption: 'Logging a workout session through the DRF-backed API.' },
+    { src: 'assets/screenshot/fittrack-google-login.png', title: 'Google Login', caption: 'Integrating Google authentication into the frontend.' },
+    { src: 'assets/screenshot/fittrack-admin-dashboard.png', title: 'Admin Dashboard', caption: 'Overview of the admin interface.' },
+    { src: 'assets/screenshot/fittrack-nutritionlog.png', title: 'Nutrition Log', caption: 'Tracking nutritional intake over time.' },
+    { src: 'assets/screenshot/fittrack-exercises.png', title: 'Workouts', caption: 'Catalog of available exercises.' },
+  ],
+};
+
 const filterBar = document.getElementById('filterBar');
 const grid = document.getElementById('projectGrid');
 const statusClass = { live: 'status-live', source: 'status-source', dev: 'status-dev' };
@@ -190,6 +219,7 @@ function projectCard(p, i) {
       <div class="card-actions">
         <a class="card-link primary" href="${p.github}" target="_blank" rel="noopener">View Project ↗</a>
         <a class="card-link" href="${p.github}" target="_blank" rel="noopener">GitHub ↗</a>
+        ${screenshotSets[p.name] ? `<button type="button" class="card-link" data-gallery="${p.name}">Screenshots</button>` : ''}
       </div>
       <details class="case">
         <summary>View Case Study</summary>
@@ -220,12 +250,119 @@ filterBar.addEventListener('click', (e) => {
   btn.classList.add('active');
   renderProjects(btn.dataset.filter);
 });
+grid.addEventListener('click', (e) => {
+  const btn = e.target.closest('[data-gallery]');
+  if (!btn) return;
+  goToGallery(btn.dataset.gallery);
+});
+
 document.getElementById('repoGrid').innerHTML = moreRepos.map(r => `
   <a class="repo-chip" href="${r.url}" target="_blank" rel="noopener">
     <span class="rname">${r.name}</span>
     <span class="rdesc">${r.desc}</span>
   </a>
 `).join('');
+
+/* ---------------- SCREENSHOTS / VISUAL EVIDENCE ---------------- */
+const galleryProjectNames = Object.keys(screenshotSets);
+
+const galleryTabsEl = document.getElementById('galleryTabs');
+const galleryGridEl = document.getElementById('galleryGrid');
+let activeGalleryProject = galleryProjectNames[0];
+let activeShotIndex = 0;
+
+function placeholderHTML() {
+  return `
+    <div class="shot-placeholder">
+      <span class="shot-placeholder-icon">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="m3 14 5-5 4 4 3-3 6 6"/><circle cx="8" cy="8" r="1.5"/></svg>
+      </span>
+      <span class="shot-placeholder-text">Screenshot pending</span>
+    </div>`;
+}
+
+function renderGalleryTabs() {
+  galleryTabsEl.innerHTML = galleryProjectNames.map(name => `
+    <button class="gallery-tab ${name === activeGalleryProject ? 'active' : ''}" role="tab" data-project="${name}">${name}</button>
+  `).join('');
+}
+function renderGalleryGrid() {
+  const shots = screenshotSets[activeGalleryProject] || [];
+  galleryGridEl.innerHTML = shots.map((s, i) => `
+    <button class="shot" data-index="${i}" aria-label="View screenshot: ${s.title}">
+      <div class="shot-frame">
+        <div class="shot-chrome"><span></span><span></span><span></span></div>
+        ${s.src ? `<img src="${s.src}" alt="${s.title} — ${activeGalleryProject}" loading="lazy">` : placeholderHTML()}
+      </div>
+      <div class="shot-caption"><strong>${s.title}</strong>${s.caption}</div>
+    </button>
+  `).join('');
+  galleryGridEl.querySelectorAll('.shot').forEach(btn => {
+    btn.addEventListener('click', () => openLightbox(parseInt(btn.dataset.index, 10)));
+  });
+}
+function switchGalleryProject(name) {
+  activeGalleryProject = name;
+  renderGalleryTabs();
+  renderGalleryGrid();
+}
+galleryTabsEl.addEventListener('click', (e) => {
+  const btn = e.target.closest('.gallery-tab');
+  if (!btn) return;
+  switchGalleryProject(btn.dataset.project);
+});
+renderGalleryTabs();
+renderGalleryGrid();
+
+/* jump to a project's gallery tab from its project card */
+function goToGallery(name) {
+  if (screenshotSets[name]) switchGalleryProject(name);
+  document.getElementById('screenshots').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+/* ---------------- LIGHTBOX ---------------- */
+const lightbox = document.getElementById('lightbox');
+const lightboxStage = document.getElementById('lightboxStage');
+const lightboxCaption = document.getElementById('lightboxCaption');
+let lastFocusedEl = null;
+
+function renderLightboxStage() {
+  const shots = screenshotSets[activeGalleryProject] || [];
+  const s = shots[activeShotIndex];
+  if (!s) return;
+  lightboxStage.innerHTML = s.src
+    ? `<img src="${s.src}" alt="${s.title} — ${activeGalleryProject}">`
+    : placeholderHTML();
+  lightboxCaption.textContent = `${activeGalleryProject} — ${s.title}: ${s.caption}`;
+}
+function openLightbox(index) {
+  activeShotIndex = index;
+  lastFocusedEl = document.activeElement;
+  renderLightboxStage();
+  lightbox.hidden = false;
+  document.body.style.overflow = 'hidden';
+  document.getElementById('lightboxClose').focus();
+}
+function closeLightbox() {
+  lightbox.hidden = true;
+  document.body.style.overflow = '';
+  if (lastFocusedEl) lastFocusedEl.focus();
+}
+function stepLightbox(delta) {
+  const shots = screenshotSets[activeGalleryProject] || [];
+  activeShotIndex = (activeShotIndex + delta + shots.length) % shots.length;
+  renderLightboxStage();
+}
+document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+document.getElementById('lightboxPrev').addEventListener('click', () => stepLightbox(-1));
+document.getElementById('lightboxNext').addEventListener('click', () => stepLightbox(1));
+lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+document.addEventListener('keydown', (e) => {
+  if (lightbox.hidden) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft') stepLightbox(-1);
+  if (e.key === 'ArrowRight') stepLightbox(1);
+});
 
 /* ---------------- SECURITY LABS DATA ---------------- */
 const labs = [
@@ -304,8 +441,8 @@ const skillGroups = [
   { title: 'Frontend', items: ['React', 'Vite', 'HTML', 'CSS', 'Chart.js'] },
   { title: 'Backend', items: ['Django', 'Django REST Framework', 'Convex', 'Celery', 'Django Channels / WebSockets'] },
   { title: 'Databases', items: ['MySQL', 'PostgreSQL', 'SQLite', 'Redis'] },
-  { title: 'Cloud / DevOps', items: ['Docker', 'Docker Compose', 'Render', 'Git','Google Cloud'] },
-  { title: 'Cybersecurity', items: ['Linux (Kali)', 'Burp Suite', 'Wireshark', 'Splunk (learning)', 'MITRE ATT&CK(learning)'] },
+  { title: 'Cloud / DevOps', items: ['Docker', 'Docker Compose', 'Render', 'Git'] },
+  { title: 'Cybersecurity', items: ['Linux (Kali)', 'Burp Suite', 'Wireshark', 'Splunk (learning)', 'MITRE ATT&CK'] },
 ];
 document.getElementById('skillsGrid').innerHTML = skillGroups.map(g => `
   <div class="skill-card reveal">
